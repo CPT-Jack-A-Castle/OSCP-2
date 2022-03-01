@@ -9,48 +9,48 @@
 ip=$(ifconfig eth0 | grep inet | awk '{print $2}' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')
 
 echo "Supported server types: "
-echo "[1] PHP"
-echo "[2] python2"
-echo "[3] busybox"
+echo "[1] busybox"
+echo "[2] php"
+echo "[3] python2"
 echo "[4] python3"
-echo "[5] busybox"
+echo "[5] ruby"
 echo " "
-echo "Eg. ruby (options are case sensitive)"
+echo "Eg. 1"
 echo " "
-echo "Specify a server type: "
+printf "Specify a server type: "
 read server
 
-echo "Specify port: "
+printf "Specify port: "
 read port
 
-if [[ $server == 'php' ]]
+if [[ $server == '1' ]]
+then
+	function busybox_web_server()
+	{
+		for name in $(ls);do echo 'http://'$ip':'$port'/'$name;done	
+		/usr/bin/busybox httpd -f -p $port;
+	}
+busybox_web_server
+
+elif [[ $server == '2' ]]
 then
 	function php_web_server()
-	{
+	{	
 		for name in $(ls);do echo 'http://'$ip':'$port'/'$name;done
 		/usr/bin/php -S $ip:$port;
 	}
 php_web_server
 
-elif [[ $server == 'python2' ]]
+elif [[ $server == '3' ]]
 then
 	function python2_web_server()
-	{	
+	{
 		for name in $(ls);do echo 'http://'$ip':'$port'/'$name;done
 		/usr/bin/python2 -m SimpleHTTPServer $port;
 	}
 python2_web_server
 
-elif [[ $server == 'busybox' ]]
-then
-	function busybox_web_server()
-	{
-		for name in $(ls);do echo 'http://'$ip':'$port'/'$name;done
-		/usr/bin/busybox httpd -f -p $port;
-	}
-busybox_web_server
-
-elif [[ $server == 'python3' ]]
+elif [[ $server == '4' ]]
 then
 	function python3_web_server()
 	{	
