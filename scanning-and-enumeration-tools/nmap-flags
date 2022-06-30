@@ -1,0 +1,5 @@
+ports=$(nmap -Pn -p- --min-rate=1000 -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+
+I used this to scan all ports, grep the results, and save them as an environment variable
+
+nmap -Pn -p $ports -sC -sV $IP
